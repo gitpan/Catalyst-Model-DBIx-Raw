@@ -1,7 +1,7 @@
 package Catalyst::Helper::Model::DBIx::Raw;
 use strict;
  
-#ABSTRACT: Helper for Net::Stripe Model
+#ABSTRACT: Helper for DBIx::Raw Model
 
 
 sub mk_compclass {
@@ -19,11 +19,11 @@ sub mk_compclass {
 
 =head1 NAME
 
-Catalyst::Helper::Model::DBIx::Raw - Helper for Net::Stripe Model
+Catalyst::Helper::Model::DBIx::Raw - Helper for DBIx::Raw Model
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 

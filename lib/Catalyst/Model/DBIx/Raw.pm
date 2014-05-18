@@ -91,7 +91,7 @@ Catalyst::Model::DBIx::Raw - A Catalyst Model for DBIx::Raw
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
@@ -104,17 +104,17 @@ version 0.001
     __PACKAGE__->config(
         dsn => 'dsn',
         user => 'user',
-	    password => 'password',
+        password => 'password',
     );
 
-	#or
+    #or
     __PACKAGE__->config(
-	    conf => '/path/to/conf.pl',
+        conf => '/path/to/conf.pl',
     );
 
-	#or
+    #or
     __PACKAGE__->config(
-	    dbix_class_model => 'DB', #will use same dbh as DBIx::Class if you have a DBIx::Class model named 'DB'
+        dbix_class_model => 'DB', #will use same dbh as DBIx::Class if you have a DBIx::Class model named 'DB'
     );
  
  
@@ -137,6 +137,7 @@ version 0.001
 L<Catalyst> calls this method.
 
 =head1 CONFIG
+
 L<Catalyst::Model::DBIx::Raw> takes in all of the same options as config options that L<DBIx::Raw> accepts for new. You can use C<dsn>, C<user>, and C<password> to connect:
 
     __PACKAGE__->config(
@@ -146,18 +147,20 @@ L<Catalyst::Model::DBIx::Raw> takes in all of the same options as config options
     );
 
 Or you can use a conf file:
+
     __PACKAGE__->config(
-	    conf => '/path/to/conf.pl',
+        conf => '/path/to/conf.pl',
     );
 
     See L<DBIx::Raw> for more information on those options. Additionally, there is one new option in L<Catalyst::Model::DBIx::Raw>, and that is C<dbix_class_model>:
+
     __PACKAGE__->config(
-	    dbix_class_model => 'DB', 
+        dbix_class_model => 'DB', 
     );
 
-This is the name of your L<DBIx::Class> model, if you have one. If passed in as config, L<Catalyst::Model::DBIx::Raw> will reuse the same dbh that L<DBIx::Class> is using. This
+This is the name of your L<DBIx::Class> model, if you have one. If passed in, L<Catalyst::Model::DBIx::Raw> will reuse the same dbh that L<DBIx::Class> is using. This
 can be useful if you have L<DBIx::Class> being used for things such as session management or CRUD with forms, but you are using L<Catalyst::Model::DBIx::Raw> to query yourself. This
-way you do not unecessarily create two database handles. Even if you do not use L<DBIx::Class> in a particular call L<Catalyst::Model::DBIx::Raw> can still use the L<DBIx::Class> model
+way you do not unecessarily create two database handles. Even if you do not use L<DBIx::Class> in a particular call, L<Catalyst::Model::DBIx::Raw> can still use the L<DBIx::Class> model
 to get a database handle.
 
 =head1 NOTES
