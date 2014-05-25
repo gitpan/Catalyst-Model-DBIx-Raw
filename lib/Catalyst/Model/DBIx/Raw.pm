@@ -44,7 +44,6 @@ sub _create_raw {
     $self->{raw} = DBIx::Raw->new(%options);
 }
 
-sub raw { shift->{raw} }
 
 sub build_per_context_instance {
 	my ($self, $c) = @_;
@@ -64,15 +63,13 @@ sub build_per_context_instance {
 
 sub AUTOLOAD {
     my $self = shift;
-    my %args = @_;
- 
     our $AUTOLOAD;
  
     my $program = $AUTOLOAD;
     $program =~ s/.*:://;
  
     # pass straight through to our DBIx::Raw object
-    return $self->{raw}->$program(%args);
+	return $self->{raw}->$program(@_);
 }
 
 
@@ -91,7 +88,7 @@ Catalyst::Model::DBIx::Raw - A Catalyst Model for DBIx::Raw
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
